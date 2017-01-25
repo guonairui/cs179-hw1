@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    background: #aaa;
+    font-size: small;
+}
+
+.notes {
+    width: 70%;
+    margin: auto;
+}
+
+.notes li {
+    list-style: none;
+    float: left;
+    margin: 1em;
+}
+
+.notes textarea:hover {
+    -webkit-transform: scale(1.2);
+    position: relative;
+}
+
+.notes textarea {
+    background-color: transparent;
+    border: none;
+    resize: none;
+    outline: none;
+     background: #ffc;
+    height: 15em;
+    width: 15em;
+    padding: 1em;
+    box-shadow: .5em .5em 1em rgba(0, 0, 0, 0.4);
+    -webkit-transform:rotate(-5deg);
+}
+
+.notes li:nth-child(3n) {
+    -webkit-transform:rotate(5deg);
+    position: relative;
+    top: -5px;
+}
