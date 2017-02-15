@@ -1,7 +1,6 @@
 body {
     font-family: sans-serif;
     background: #eee;
-    font-size: small;
 }
 
 .note textarea {
@@ -24,7 +23,7 @@ body {
     float: left;
 }
 
-#create, #save, #clear {
+#create {
     margin: 2em;
     padding: 1em;
     right: 10px;
@@ -32,7 +31,11 @@ body {
 
 .delete {
     position: relative;
-    top: -15em;
-    right: -16em;
+    top: -19em;
+    right: -20em;
     z-index: 100;
+}
+
+.note-content {
+    font-size: large;
 }

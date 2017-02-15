@@ -8,15 +8,11 @@ function displayNotes() {
 
     $('#notes').html(notesHtml);
 
-    var timeout;
     $('.note-content').on('input propertychange change', function () {
-        clearTimeout(timeout);
-        timeout = setTimeout(function () {
-            $(".note").each(function (i) {
-                notes[i].content = $($(this).children()[1]).val();
-            });
-            localStorage.notes = JSON.stringify(notes);
-        }, 1000);
+        $(".note").each(function (i) {
+            notes[i].content = $($(this).children()[1]).val();
+        });
+        localStorage.notes = JSON.stringify(notes);
     });
 }
 
