@@ -17,6 +17,10 @@ function displayNotes() {
 }
 
 $(document).ready(function () {
+    // navigator.geolocation.getCurrentPosition(function(position) {
+    //     alert(position.coords.latitude);
+    // });
+
     if (localStorage.notes) {
         notes = JSON.parse(localStorage.notes);
     } else {
@@ -29,6 +33,23 @@ $(document).on('click', '#create', function () {
     notes.push({ content: "" });
     localStorage.notes = JSON.stringify(notes);
     displayNotes();
+});
+
+$(document).on('click', '#create_weather', function () {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        console.log("hey:" + lat + " " + long);
+        var url = "http://api.openweathermap.org/data/2.5/weather"
+        var appid = "3ce4f757ffc5a84bf69043ffe726a392";
+        var query = url + "?lat=" + lat + "&lon=" + long + "&appid=" + appid;
+        $.getJSON( query, function(json) {
+            var weather_content = json.weather[0].main + " " + json.weather[0].description;
+            notes.push({content: weather_content});
+            localStorage.notes = JSON.stringify(notes);
+            displayNotes();
+        });
+    });
 });
 
 $(document).on('click', '.delete', function () {
